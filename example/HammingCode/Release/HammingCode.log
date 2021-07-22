@@ -1,0 +1,20 @@
+﻿  hamming_code_test.cpp
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(21,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(55,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(69,37): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(69,74): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(88,21): warning C4018: <: несоответствие типов со знаком и без знака
+  hamming_code.cpp
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(26,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(29,17): warning C4244: аргумент: преобразование "double" в "unsigned int", возможна потеря данных
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(32,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(41,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(46,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(55,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(59,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code.cpp(89,35): warning C4244: аргумент: преобразование "double" в "int16_t", возможна потеря данных
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+  All 253 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  HammingCode.vcxproj -> C:\Users\umark\source\repos\HammingCode\Release\HammingCode.exe
