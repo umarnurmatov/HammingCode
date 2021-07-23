@@ -1,6 +1,0 @@
-﻿  hamming_code_test.cpp
-C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(21,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(55,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(69,37): warning C4018: >: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\HammingCode\HammingCode\hamming_code_test.cpp(88,21): warning C4018: <: несоответствие типов со знаком и без знака
-  HammingCode.vcxproj -> C:\Users\umark\source\repos\HammingCode\Debug\HammingCode.exe
