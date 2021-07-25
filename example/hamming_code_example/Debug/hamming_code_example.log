@@ -6,12 +6,14 @@ C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_co
 C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(46,21): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(55,21): warning C4018: <: несоответствие типов со знаком и без знака
 C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(59,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(89,35): warning C4244: аргумент: преобразование "double" в "int16_t", возможна потеря данных
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(89,35): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(128,36): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(160,36): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
   hamming_code_example.cpp
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(21,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(55,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(69,37): warning C4018: >: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(69,74): warning C4018: >: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(88,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(22,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(56,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(70,37): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(70,74): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(89,21): warning C4018: <: несоответствие типов со знаком и без знака
   Создание кода...
   hamming_code_example.vcxproj -> C:\Users\umark\source\repos\hamming_code_example\Debug\hamming_code_example.exe

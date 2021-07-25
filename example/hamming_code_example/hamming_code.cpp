@@ -1,5 +1,5 @@
 #include "hamming_code.h"
-
+#include <iostream>
 using namespace hcode;
 
 void e_hamming_code::encode_vector(std::vector<bool>* input, OUT std::vector<bool>* output)
@@ -64,14 +64,14 @@ bool e_hamming_code::decode_vector(std::vector<bool>* input, OUT std::vector<boo
 
 int_h_code e_hamming_code::encode_int(int input)
 {
-	hcode::int_h_code output;
+	int_h_code output;
 
-	for (int16_t k = 0; k < i_bit_size / data_size; k++)
+	for (short k = 0; k < i_bit_size / data_size; k++)
 	{
 		int rbit = 0;
 		bool rtbit = 0;
-		int16_t rbit_ctr = 0;
-		for (int16_t i = 1; i < code_size; i++)
+		short rbit_ctr = 0;
+		for (short i = 1; i < code_size; i++)
 		{
 			if (is_power_of_two(i))
 			{
@@ -95,11 +95,85 @@ int_h_code e_hamming_code::encode_int(int input)
 	return output;
 }
 
+float_h_code e_hamming_code::encode_float(float input)
+{
+	float_h_code output;
+
+
+	if (f_bit_size == i_bit_size)
+	{
+		int* r_input = reinterpret_cast<int*>(&input);
+
+		for (short k = 0; k < f_bit_size / data_size; k++)
+		{
+			int rbit = 0;
+			bool rtbit = 0;
+			short rbit_ctr = 0;
+
+			for (short i = 1; i < code_size; i++)
+			{
+				if (is_power_of_two(i))
+				{
+					write_to_bit(&output.cw[k], i, 0);
+					rbit_ctr++;
+				}
+				else write_to_bit(&output.cw[k], i, read_bit(*r_input, i - rbit_ctr - 1 + data_size * k));
+			}
+
+			for (int i = 0; i < rbit_ctr; i++)
+			{
+				for (int n = 1; n < code_size; n++)
+					if (read_bit(output.cw[k], n) && read_bit(n, i)) write_to_bit(&rbit, i, read_bit(rbit, i) ^ 1);
+
+				write_to_bit(&output.cw[k], pow(2, i), read_bit(rbit, i));
+			}
+
+			for (int i = 1; i < code_size; i++) if (read_bit(output.cw[k], i)) rtbit ^= 1;
+			write_to_bit(&output.cw[k], 0, rtbit);
+		}
+	}
+	else if (f_bit_size == l_bit_size)
+	{
+		long* r_input = reinterpret_cast<long*>(&input);
+
+		for (short k = 0; k < f_bit_size / data_size; k++)
+		{
+			int rbit = 0;
+			bool rtbit = 0;
+			short rbit_ctr = 0;
+
+			for (short i = 1; i < code_size; i++)
+			{
+				if (is_power_of_two(i))
+				{
+					write_to_bit(&output.cw[k], i, 0);
+					rbit_ctr++;
+				}
+				else write_to_bit(&output.cw[k], i, read_bit(*r_input, i - rbit_ctr - 1 + data_size * k));
+			}
+
+			for (int i = 0; i < rbit_ctr; i++)
+			{
+				for (int n = 1; n < code_size; n++)
+					if (read_bit(output.cw[k], n) && read_bit(n, i)) write_to_bit(&rbit, i, read_bit(rbit, i) ^ 1);
+
+				write_to_bit(&output.cw[k], pow(2, i), read_bit(rbit, i));
+			}
+
+			for (int i = 1; i < code_size; i++) if (read_bit(output.cw[k], i)) rtbit ^= 1;
+			write_to_bit(&output.cw[k], 0, rtbit);
+		}
+		
+	}
+	return output;
+}
+
+
 bool e_hamming_code::decode_int(int_h_code input, OUT int* output)
 {
-	for (int16_t k = 0; k < i_bit_size / data_size; k++)
+	for (short k = 0; k < i_bit_size / data_size; k++)
 	{
-		int16_t ebit = 0;
+		short ebit = 0;
 		bool etbit;
 
 		for (int i = 0; i < rbit_num; i++)
@@ -117,7 +191,7 @@ bool e_hamming_code::decode_int(int_h_code input, OUT int* output)
 			if (etbit) return false;
 		}
 
-		int16_t rbit_ctr = 0;
+		short rbit_ctr = 0;
 		for (int i = 1; i < code_size; i++)
 		{
 			if (!is_power_of_two(i)) write_to_bit(output, i - rbit_ctr - 1 + data_size * k, read_bit(input.cw[k], i));
@@ -125,5 +199,75 @@ bool e_hamming_code::decode_int(int_h_code input, OUT int* output)
 		}
 	}
 
+	return true;
+}
+
+bool e_hamming_code::decode_float(float_h_code input, OUT float* output)
+{
+	int i_output;
+
+	if (f_bit_size == i_bit_size)
+	{
+		for (short k = 0; k < f_bit_size / data_size; k++)
+		{
+			short ebit = 0;
+			bool etbit;
+
+			for (int i = 0; i < rbit_num; i++)
+			{
+				for (int n = 1; n < code_size; n++)
+					if (read_bit(input.cw[k], n) && (1 << i) & n) ebit ^= (1 << i);
+			}
+
+			if (ebit)
+			{
+				invert_bit(&input.cw[k], ebit);
+
+				etbit = read_bit(input.cw[k], 0);
+				for (int i = 1; i < code_size; i++) if (read_bit(input.cw[k], i)) etbit ^= 1;
+				if (etbit) return false;
+			}
+
+			short rbit_ctr = 0;
+			for (int i = 1; i < code_size; i++)
+			{
+				if (!is_power_of_two(i)) write_to_bit(&i_output, i - rbit_ctr - 1 + data_size * k, read_bit(input.cw[k], i));
+				else rbit_ctr++;
+			}
+		}
+		*output = *reinterpret_cast<float*>(&i_output);
+	}
+	else if (f_bit_size == l_bit_size)
+	{
+		for (short k = 0; k < f_bit_size / data_size; k++)
+		{
+			short ebit = 0;
+			bool etbit;
+
+			for (int i = 0; i < rbit_num; i++)
+			{
+				for (int n = 1; n < code_size; n++)
+					if (read_bit(input.cw[k], n) && (1 << i) & n) ebit ^= (1 << i);
+			}
+
+			if (ebit)
+			{
+				invert_bit(&input.cw[k], ebit);
+
+				etbit = read_bit(input.cw[k], 0);
+				for (int i = 1; i < code_size; i++) if (read_bit(input.cw[k], i)) etbit ^= 1;
+				if (etbit) return false;
+			}
+
+			short rbit_ctr = 0;
+			for (int i = 1; i < code_size; i++)
+			{
+				if (!is_power_of_two(i)) write_to_bit(&i_output, i - rbit_ctr - 1 + data_size * k, read_bit(input.cw[k], i));
+				else rbit_ctr++;
+			}
+		}
+		*output = *reinterpret_cast<float*>(&i_output);
+	}
+	
 	return true;
 }
