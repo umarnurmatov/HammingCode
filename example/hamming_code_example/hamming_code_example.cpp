@@ -101,7 +101,7 @@ int main()
 	std::cout << "| Hamming code alg. with practical usage ability |\n";
 
 	int i_input = -14578;
-	float f_input = -123.45f;
+	float f_input = 12349474.42f;
 	hcode::int_h_code i_output_code;
 	hcode::float_h_code f_output_code;
 	i_output_code = coder.encode_int(i_input);
