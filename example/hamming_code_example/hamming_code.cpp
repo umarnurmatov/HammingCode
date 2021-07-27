@@ -1,5 +1,4 @@
 #include "hamming_code.h"
-#include <iostream>
 using namespace hcode;
 
 void e_hamming_code::encode_vector(std::vector<bool>* input, OUT std::vector<bool>* output)

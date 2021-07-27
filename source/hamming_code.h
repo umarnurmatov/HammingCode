@@ -96,7 +96,6 @@ namespace hcode
 		* 2. Encode each group in ex. (7, 4) Hamming code -> getting 8-bit codewords group
 		* 3. Writing codewords into codeword structure (e.g. int_h_code) */
 
-		// 
 		int_h_code encode_int(int input);
 		float_h_code encode_float(float input);
 
