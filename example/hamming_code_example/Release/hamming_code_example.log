@@ -1,16 +1,22 @@
 ﻿  hamming_code.cpp
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(26,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(29,17): warning C4244: аргумент: преобразование "double" в "unsigned int", возможна потеря данных
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(32,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(41,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(46,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(55,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(59,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(89,35): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
-C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(125,35): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(25,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(28,17): warning C4244: аргумент: преобразование "double" в "unsigned int", возможна потеря данных
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(31,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(40,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(45,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(54,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(58,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(88,35): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code.cpp(124,35): warning C4244: аргумент: преобразование "double" в "short", возможна потеря данных
+  hamming_code_example.cpp
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(25,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(59,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(71,37): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(83,37): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\umark\source\repos\hamming_code_example\hamming_code_example\hamming_code_example.cpp(99,21): warning C4018: <: несоответствие типов со знаком и без знака
   Создание кода
-  9 of 259 functions ( 3.5%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  4 of 258 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    8 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   hamming_code_example.vcxproj -> C:\Users\umark\source\repos\hamming_code_example\Release\hamming_code_example.exe

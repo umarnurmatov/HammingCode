@@ -7,6 +7,9 @@
 #include <iostream>
 #include "hamming_code.h"
 
+// Inverts a bit in "x" at "pos" position
+inline void invert_bit(char* x, short pos) { *x ^= (1 << pos); }
+
 void get_bin_input(std::vector<bool>* output)
 {
 	while (true)
@@ -64,22 +67,29 @@ int main()
 
 		std::cout << "Enter number of error-bit position #1 (from 1): ";
 		std::cin >> error_bit1;
-		std::cout << "Enter number of error-bit position #2 (enter 0, if want a single error): ";
-		std::cin >> error_bit2;
 
-		if (std::cin.fail() || error_bit1 > v_output_code.size() || error_bit2 > v_output_code.size())
+		if (std::cin.fail() || error_bit1 > v_output_code.size() || !error_bit1)
 		{
 			std::cin.clear();
 			std::cin.ignore(32767, '\n');
 			std::cout << "Incorrect input! Try again...\n";
 			continue;
 		}
-		else
+		else v_output_code[error_bit1 + 1] = !v_output_code[error_bit1 + 1];
+
+		std::cout << "Enter number of error-bit position #2 (enter 0, if want a single error): ";
+		std::cin >> error_bit2;
+
+		if (std::cin.fail() || error_bit2 > v_output_code.size())
 		{
-			v_output_code[error_bit1 + 1] = !v_output_code[error_bit1 + 1];
-			if (error_bit2) v_output_code[error_bit2 + 1] = !v_output_code[error_bit2 + 1];
-			break;
+			std::cin.clear();
+			std::cin.ignore(32767, '\n');
+			std::cout << "Incorrect input! Try again...\n";
+			continue;
 		}
+		else if (error_bit2) v_output_code[error_bit2 + 1] = !v_output_code[error_bit2 + 1];
+
+		break;
 	}
 
 	// Printing decoding result
@@ -100,24 +110,58 @@ int main()
 
 	std::cout << "| Hamming code alg. with practical usage ability |\n";
 
-	int i_input = -14578;
-	float f_input = 12349474.42f;
+	int i_input;
+	float f_input;
+
+	// Initializing variables
+	while (true)
+	{
+		std::cout << "Enter int-number: ";
+		std::cin >> i_input;
+
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767, '\n');
+			std::cout << "Incorrect input! Try again...\n";
+			continue;
+		}
+
+		std::cout << "Enter float-number: ";
+		std::cin >> f_input;
+
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767, '\n');
+			std::cout << "Incorrect input! Try again...\n";
+			continue;
+		}
+		std::cout << std::endl;
+		break;
+	}
+	
 	hcode::int_h_code i_output_code;
 	hcode::float_h_code f_output_code;
+
 	i_output_code = coder.encode_int(i_input);
 	f_output_code = coder.encode_float(f_input);
+
+	std::cout << "Int bytesize: " << sizeof(int) << "; Int code word bytesize : " << sizeof(i_output_code) << std::endl;
+	std::cout << "Float bytesize: " << sizeof(float) << "; Float code word bytesize: " << sizeof(f_output_code) << std::endl;
+	std::cout << std::endl;
 
 	int i_output_decode;
 	if (coder.decode_int(i_output_code, &i_output_decode))
 	{
-		std::cout << i_output_decode << "\n";
+		std::cout << "Decoded int: " << i_output_decode << "\n";
 	}
 
 	float f_output_decode;
 	coder.decode_float(f_output_code, &f_output_decode);
 	if (coder.decode_float(f_output_code, &f_output_decode))
 	{
-		std::cout << f_output_decode << "\n";
+		std::cout << "Decoded float: " << f_output_decode << "\n";
 	}
 
 	return 0;
